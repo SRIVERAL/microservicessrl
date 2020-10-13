@@ -1,0 +1,6 @@
+17:07:10.161 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+17:07:10.514 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+17:07:10.739 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path '/escuelait/api/v1/microservices'
+17:07:10.741 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Context refreshed
+17:07:10.846 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+17:07:10.962 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner - Scanning for api listing references

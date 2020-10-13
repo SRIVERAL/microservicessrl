@@ -1,0 +1,3 @@
+20:25:37.572 [background-preinit] INFO  o.h.validator.internal.util.Version -HV000001: Hibernate Validator 6.1.5.Final
+20:25:37.642 [main] INFO  c.c.e.m.MicroservicesSrlJavaClassesApplication -Starting MicroservicesSrlJavaClassesApplication on Santiago with PID 8264 (C:\cursos\java\microservicessrl\target\classes started by SANTIAGO in C:\cursos\java\microservicessrl)
+20:25:37.644 [main] INFO  c.c.e.m.MicroservicesSrlJavaClassesApplication -No active profile set, falling back to default profiles: default

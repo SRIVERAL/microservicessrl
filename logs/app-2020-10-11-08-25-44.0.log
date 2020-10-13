@@ -1,0 +1,5 @@
+20:25:44.484 [main] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping -Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+20:25:44.631 [main] INFO  o.s.s.c.ThreadPoolTaskExecutor -Initializing ExecutorService 'applicationTaskExecutor'
+20:25:44.887 [main] INFO  o.a.coyote.http11.Http11NioProtocol -Starting ProtocolHandler ["http-nio-8081"]
+20:25:44.956 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer -Tomcat started on port(s): 8081 (http) with context path '/escuelait/api/v1/microservices'
+20:25:44.958 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Context refreshed

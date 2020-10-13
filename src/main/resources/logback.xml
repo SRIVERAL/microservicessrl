@@ -1,0 +1,82 @@
+<configuration>
+
+	<property scope="context" resource= "application.properties"/>
+	
+	<!-- El medio de volcado de LOGS. En este caso Consola -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>logs/application.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE_CONTROLLER" class="ch.qos.logback.core.FileAppender">
+		<file>logs/controller.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+		</encoder>
+	</appender>
+		
+	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>app.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>logs/app-%d{yyyy-MM-dd-hh-mm-ss}.%i.log</fileNamePattern>
+			<maxFileSize>1000KB</maxFileSize>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>userid</key>
+			<defaultValue>unknown</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+				<file>logs/user-${userid}.log</file>
+				<encoder>
+					<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} -%msg%n</pattern>
+				</encoder>
+			</appender>
+		</sift>
+	</appender>
+	
+	<appender name="json" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+			<jsonFormatter class="ch.qos.logback.contrib.jackson.JacksonJsonFormatter">
+				<prettyPrint>true</prettyPrint>
+			</jsonFormatter>
+			<timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
+		</layout>	
+	</appender>
+	
+	<if condition='property("env").equals("prod")'>
+		<then>
+			<root level="INFO">
+				<appender-ref ref="STDOUT" />
+			</root>
+		</then>
+	</if>
+	
+	<if condition='property("env").equals("test")'>
+		<then>
+			<root level="DEBUG">
+				<appender-ref ref="STDOUT" />
+			</root>
+			<logger name="co.com.escuelait.microservicessrl.controller" level = "ERROR" additivity =  "false" >
+				<appender-ref ref = "FILE_CONTROLLER" />
+			</logger>
+		</then>
+	</if>
+
+</configuration>

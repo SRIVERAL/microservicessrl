@@ -1,0 +1,3 @@
+20:25:45.001 [main] INFO  s.d.s.w.p.DocumentationPluginsBootstrapper -Found 1 custom documentation plugin(s)
+20:25:45.066 [main] INFO  s.d.s.w.s.ApiListingReferenceScanner -Scanning for api listing references
+20:25:45.538 [main] INFO  c.c.e.m.MicroservicesSrlJavaClassesApplication -Started MicroservicesSrlJavaClassesApplication in 8.883 seconds (JVM running for 11.753)
